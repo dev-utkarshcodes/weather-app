@@ -72,7 +72,7 @@ const Weather = () => {
     }
 
     try {
-    const url = `http://localhost:5000/api/weather?city=${city}`;
+    const url = `https://weather-app-v67s.onrender.com/api/weather?city=${city}&units=metric`;
       const response = await fetch(url);
       const data = await response.json();
 
