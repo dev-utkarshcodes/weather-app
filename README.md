@@ -1,39 +1,41 @@
 # 🌦️ React Weather App
 
-This is a responsive weather application built using **React**. It allows users to search for any city and get real-time weather data using the **OpenWeatherMap API**. The app features a dynamic background, current time, and supports all screen sizes including mobile and tablet.
+A responsive weather application built with **React** and **Node.js**. Search any city and get real-time weather updates from the **OpenWeatherMap API**. Dynamic backgrounds, clock, and full mobile/tablet support included.
 
 ---
 
 ## 🚀 Features
 
 - 🔍 Search by city name
-- 🌦 Real-time weather data (temperature, humidity, wind, weather condition)
-- 🖼 Dynamic background (GIFs/videos based on weather condition and time)
-- 📱 Responsive design for mobile, tablet, and desktop
-- 🌐 Backend server (Node.js + Express) to securely proxy API requests
-- 🔒 API key hidden in backend (not exposed in frontend)
+- 🌦 Real-time weather data (temperature, humidity, wind, condition)
+- 🖼 Dynamic background (GIFs/videos based on weather + time)
+- 📱 Responsive layout (mobile/tablet/desktop)
+- 🌐 Node.js backend proxy to protect API key
+- 🔒 API key never exposed in frontend code
 
 ---
 
 ## 🛠 Tech Stack
 
-- Frontend: React (Vite)
-- Backend: Node.js, Express
-- API: OpenWeatherMap
-- Styling: CSS
+- **Frontend**: React (Vite)
+- **Backend**: Node.js + Express
+- **API**: OpenWeatherMap
+- **Styling**: Plain CSS
 
 ---
 
-## 📦 Folder Structure
+## 📁 Folder Structure
 
 weather-app/
-├── src/ # React frontend
-│ └── Weather.jsx
-├── server/ # Backend Node server
+├── frontend/ # React app
+│ ├── src/
+│ │ └── Weather.jsx
+│ ├── public/
+│ ├── vite.config.js
+│ └── .env # Optional (no API key)
+├── backend/ # Node.js Express server
 │ ├── server.js
-│ └── .env # Not included in repo
-├── public/
-├── .env # Frontend (optional, no API key here)
+│ └── .env # Contains API key (not pushed to GitHub)
 ├── .gitignore
 ├── README.md
 └── package.json
@@ -43,38 +45,59 @@ weather-app/
 
 ## 📋 Setup Instructions
 
-### 🧑‍💻 1. Clone the Repository
+### 🔧 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/weather-app.git
+git clone git https://github.com/dev-utkarshcodes/weather-app.git
 cd weather-app
 
-⚙️ 2. Install Dependencies
-Frontend:
+🌐 2. Set Up Backend
+cd backend
+npm install
+
+Create a .env file in the backend folder:
+WEATHER_API_KEY=your_openweathermap_api_key
+
+Start the backend server:
+node server.js
+
+By default it runs on: http://localhost:5000
+
+⚛️ 3. Set Up Frontend
+cd ../frontend
 npm install
 npm run dev
 
-Backend (in /server):
-cd server
-npm install
+🔁 4. Proxy Setup (Optional but Recommended)
+Edit frontend/vite.config.js to add a proxy:
+server: {
+  proxy: {
+    '/api': 'http://localhost:5000',
+  }
+}
+Now in your frontend code you can fetch like this:
+fetch(`/api/weather?city=${city}`)
 
-Create a .env file inside server/:
-WEATHER_API_KEY=your_openweathermap_api_key
+Instead of calling the full backend URL.
 
-Run the server:
-node server.js
+/
 
-🌐 API Source
-Data is powered by OpenWeatherMap
-
-✅ Deployment Plan
-Backend: Render
+🚀 Deployment Plan
 Frontend: Netlify or Vercel
 
-📱 Screenshots
+Backend: Render
+
+Be sure to set the backend’s WEATHER_API_KEY in Render's Environment Variables section.
+
+🧹 .gitignore Notes
+Make sure .gitignore includes:
+node_modules/
+.env
+frontend/.env
+backend/.env
 
 📄 License
-This project is open-source and free to use.
+This project is open-source and free to use for learning, portfolio, and personal use.
 
 🙋‍♂️ Author
 Utkarsh Shukla
