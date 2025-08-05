@@ -51,7 +51,8 @@ weather-app/
 git clone git https://github.com/dev-utkarshcodes/weather-app.git
 cd weather-app
 
-###🌐 2. Set Up Backend
+### 🌐 2. Set Up Backend
+
 cd backend
 npm install
 
@@ -63,12 +64,14 @@ node server.js
 
 By default it runs on: http://localhost:5000
 
-###⚛️ 3. Set Up Frontend
+### ⚛️ 3. Set Up Frontend
+
 cd ../frontend
 npm install
 npm run dev
 
-###🔁 4. Proxy Setup (Optional but Recommended)
+### 🔁 4. Proxy Setup (Optional but Recommended)
+
 Edit frontend/vite.config.js to add a proxy:
 server: {
   proxy: {
@@ -82,7 +85,8 @@ Instead of calling the full backend URL.
 
 /
 
-##🚀 Deployment Plan
+## 🚀 Deployment Plan
+
 Frontend: Netlify or Vercel
 
 Backend: Render
@@ -96,9 +100,11 @@ node_modules/
 frontend/.env
 backend/.env
 
-##📄 License
+## 📄 License
+
 This project is open-source and free to use for learning, portfolio, and personal use.
 
-##🙋‍♂️ Author
+## 🙋‍♂️ Author
+
 Utkarsh Shukla
 GitHub: @dev-utkarshcodes
