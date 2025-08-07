@@ -4,6 +4,22 @@ A responsive weather application built with **React** and **Node.js**. Search an
 
 ---
 
+## 🔗 Live Demo
+
+[🌐 Click here to view the app](https://weather-app-five-phi-77.vercel.app/)
+
+---
+
+## 🖼️ Screenshots
+
+### 💻 Desktop View
+![Desktop View](./screenshots/desktop-view.png)
+
+### 📱 Mobile View
+![Mobile View](./screenshots/mobile-view.png)
+
+---
+
 ## 🚀 Features
 
 - 🔍 Search by city name
@@ -26,20 +42,24 @@ A responsive weather application built with **React** and **Node.js**. Search an
 
 ## 📁 Folder Structure
 
+```
 weather-app/
-├── frontend/ # React app
-│ ├── src/
-│ │ └── Weather.jsx
-│ ├── public/
-│ ├── vite.config.js
-│ └── .env # Optional (no API key)
-├── backend/ # Node.js Express server
-│ ├── server.js
-│ └── .env # Contains API key (not pushed to GitHub)
+├── frontend/            # React app
+│   ├── src/
+│   │   └── Weather.jsx
+│   ├── public/
+│   ├── vite.config.js
+│   └── .env             # Optional (no API key)
+├── backend/             # Node.js Express server
+│   ├── server.js
+│   └── .env             # Contains API key (not pushed to GitHub)
+├── screenshots/         # App screenshots
+│   ├── mobile-view.png
+│   └── desktop-view.png
 ├── .gitignore
 ├── README.md
 └── package.json
-
+```
 
 ---
 
@@ -48,63 +68,90 @@ weather-app/
 ### 🔧 1. Clone the Repository
 
 ```bash
-git clone git https://github.com/dev-utkarshcodes/weather-app.git
+git clone https://github.com/dev-utkarshcodes/weather-app.git
 cd weather-app
+```
 
 ### 🌐 2. Set Up Backend
 
+```bash
 cd backend
 npm install
+```
 
-Create a .env file in the backend folder:
+Create a `.env` file in the backend folder with the following content:
+
+```env
 WEATHER_API_KEY=your_openweathermap_api_key
+```
 
 Start the backend server:
-node server.js
 
-By default it runs on: http://localhost:5000
+```bash
+node server.js
+```
+
+> By default, it runs on: `http://localhost:5000`
 
 ### ⚛️ 3. Set Up Frontend
 
+```bash
 cd ../frontend
 npm install
 npm run dev
+```
 
 ### 🔁 4. Proxy Setup (Optional but Recommended)
 
-Edit frontend/vite.config.js to add a proxy:
+Edit `frontend/vite.config.js` to add a proxy:
+
+```js
 server: {
   proxy: {
     '/api': 'http://localhost:5000',
   }
 }
+```
+
 Now in your frontend code you can fetch like this:
+
+```js
 fetch(`/api/weather?city=${city}`)
+```
 
 Instead of calling the full backend URL.
 
-/
+---
 
 ## 🚀 Deployment Plan
 
-Frontend: Netlify or Vercel
+- **Frontend**: Netlify or Vercel  
+- **Backend**: Render  
 
-Backend: Render
+Be sure to set the backend’s `WEATHER_API_KEY` in Render's Environment Variables section.
 
-Be sure to set the backend’s WEATHER_API_KEY in Render's Environment Variables section.
+---
 
-##🧹 .gitignore Notes
-Make sure .gitignore includes:
+## 🧹 .gitignore Notes
+
+Make sure `.gitignore` includes:
+
+```
 node_modules/
 .env
 frontend/.env
 backend/.env
+```
+
+---
 
 ## 📄 License
 
 This project is open-source and free to use for learning, portfolio, and personal use.
 
+---
+
 ## 🙋‍♂️ Author
 
-Utkarsh Shukla
-GitHub: @dev-utkarshcodes
+**Utkarsh Shukla**  
+GitHub: [@dev-utkarshcodes](https://github.com/dev-utkarshcodes)
